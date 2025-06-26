@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
+  }
+@font-face {
+    font-family: "Rochester";
+    src: url(../fonts//Rochester-Regular.ttf);
+  }
+
+$font1:Roboto, serif;
+$font2:Rochester, serif;
+$Color1:rgb(255, 198, 50);
+$Color2:rgb(56, 45, 94);
+$Color3:#FD8000;
+$Color4:#7E9E23;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+  }
+  @mixin childCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body{
+    background-color: white;
+    color: $Color2;
+    h3{
+      font-style: italic;
+    }
+    
+    li{
+      list-style: none;  
+    }
+    a{
+        text-decoration: none;
+        color: $Color2;
+    }
+    main{
+      overflow-x: hidden;
+    }
+    
+  }

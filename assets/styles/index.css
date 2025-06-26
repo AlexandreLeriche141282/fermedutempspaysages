@@ -1,0 +1,294 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+  font-family: "Rochester";
+  src: url(../fonts//Rochester-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+body {
+  background-color: white;
+  color: rgb(56, 45, 94);
+}
+body h3 {
+  font-style: italic;
+}
+body li {
+  list-style: none;
+}
+body a {
+  text-decoration: none;
+  color: rgb(56, 45, 94);
+}
+body main {
+  overflow-x: hidden;
+}
+
+nav {
+  width: 100%;
+  background-color: white;
+  font-weight: 400;
+  transition: 0.3s;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+nav .navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.5vw 0;
+  max-width: 1800px;
+}
+nav .navContainer .logo-nav {
+  width: 10vw;
+  padding-left: 30px;
+  position: relative;
+  z-index: 3;
+  transform: translateY(50%);
+  transition: transform 0.3s ease;
+}
+@media (max-width: 900px) {
+  nav .navContainer .logo-nav {
+    width: 180px;
+    padding-left: 10px;
+    transform: none;
+  }
+}
+nav .navContainer .menu-burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+nav .navContainer .menu-burger span {
+  height: 1px;
+  width: 25px;
+  background-color: black;
+  margin: 4px;
+  transition: 0.3s;
+}
+nav .navContainer ul {
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+nav .navContainer ul li {
+  margin: 0 20px;
+  cursor: pointer;
+}
+nav .navContainer ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+nav .navContainer ul li a:hover {
+  color: rgb(255, 198, 50);
+}
+nav .navContainer .closeMenu {
+  display: none;
+}
+nav .navContainer .btn {
+  cursor: pointer;
+  border: 2px solid rgb(255, 198, 50);
+  background-color: rgb(255, 198, 50);
+  border-radius: 10px;
+  padding: 10px;
+  color: #1A237E;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  font-size: calc(0.5vw + 8px);
+  text-transform: uppercase;
+}
+@media (max-width: 900px) {
+  nav .navContainer .btn {
+    margin-right: 10px;
+    padding: 5px;
+  }
+}
+nav .navContainer .btn:hover {
+  background-color: white;
+  color: rgb(255, 198, 50);
+  transform: scale(1.01);
+}
+@media (max-width: 1500px) {
+  nav .navContainer .menu-burger {
+    display: flex;
+  }
+  nav .navContainer ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: rgb(56, 45, 94);
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    transition: right 0.5s ease-in-out;
+    padding-top: 60px;
+  }
+  nav .navContainer ul.active {
+    right: 0;
+  }
+  nav .navContainer ul .closeMenu {
+    display: block;
+    width: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+  nav .navContainer ul li {
+    margin: 10px 0;
+    padding: 20px;
+    letter-spacing: 5px;
+  }
+  nav .navContainer ul li a {
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  nav .navContainer ul.active li a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  nav .navContainer ul li:nth-child(1) a {
+    transition-delay: 0.1s;
+  }
+  nav .navContainer ul li:nth-child(2) a {
+    transition-delay: 0.2s;
+  }
+  nav .navContainer ul li:nth-child(3) a {
+    transition-delay: 0.3s;
+  }
+  nav .navContainer ul li:nth-child(4) a {
+    transition-delay: 0.4s;
+  }
+  nav .navContainer ul li:nth-child(5) a {
+    transition-delay: 0.5s;
+  }
+  nav .navContainer ul li:nth-child(6) a {
+    transition-delay: 0.6s;
+  }
+  nav .navContainer ul li:nth-child(7) a {
+    transition-delay: 0.7s;
+  }
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 80px;
+}
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.hero-section .hero-content {
+  color: white;
+  text-align: center;
+  z-index: 2;
+  max-width: 900px;
+}
+.hero-section .hero-content .pre-title {
+  font-size: 5rem;
+  font-family: Rochester, serif;
+  font-weight: 100;
+  margin-bottom: 10px;
+  color: rgb(255, 198, 50);
+}
+.hero-section .hero-content .tax-credit {
+  margin-top: 30px;
+}
+.hero-section .hero-content .tax-credit img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.hero-section .hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.hero-section .hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.hero-section .hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.hero-section .hero-content .cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.hero-section .hero-content .cta-buttons .btn-cta {
+  padding: 12px 24px;
+  background-color: rgb(255, 198, 50);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.hero-section .hero-content .cta-buttons .btn-cta:hover {
+  background-color: #feb700;
+}
+.hero-section .hero-content .cta-buttons .btn-cta.secondary {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+.hero-section .hero-content .cta-buttons .btn-cta.secondary:hover {
+  background-color: white;
+  color: rgb(255, 198, 50);
+}
+@media (max-width: 768px) {
+  .hero-section .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-section .hero-content h2 {
+    font-size: 1.4rem;
+  }
+  .hero-section .hero-content p {
+    font-size: 1rem;
+  }
+  .hero-section .hero-content .btn-cta {
+    width: 100%;
+    text-align: center;
+  }
+}/*# sourceMappingURL=index.css.map */
