@@ -59,7 +59,7 @@ nav .navContainer .logo-nav {
 }
 @media (max-width: 900px) {
   nav .navContainer .logo-nav {
-    width: 140px;
+    width: 150px;
     padding-left: 10px;
     transform: none;
   }
@@ -133,7 +133,7 @@ nav .navContainer .btn:hover {
   color: rgb(255, 198, 50);
   transform: scale(1.01);
 }
-@media (max-width: 1500px) {
+@media (max-width: 1300px) {
   nav .navContainer .menu-burger {
     display: flex;
   }
