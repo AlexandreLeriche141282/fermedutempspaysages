@@ -4,6 +4,7 @@
   height: 100vh;
   overflow: hidden;
   margin-top: 80px; // compense la nav fixe
+  z-index: 0;
 
   img {
     width: 100%;

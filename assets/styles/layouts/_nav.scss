@@ -14,11 +14,11 @@ nav {
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
-      padding: 0.5vw 0;
+      // padding: 0.5vw 0;
       max-width: 1800px;
   
       .logo-nav {
-    width: 10vw;
+    width: 8vw;
     padding-left: 30px;
     position: relative;
     z-index: 3;
@@ -26,24 +26,42 @@ nav {
     transition: transform 0.3s ease;
 
     @media (max-width: 900px) {
-      width: 180px;
+      width: 140px;
       padding-left: 10px;
       transform: none;
     }
   }
   
       .menu-burger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        span {
-          height: 1px;
-          width: 25px;
-          background-color: black;
-          margin: 4px;
-          transition: 0.3s;
-        }
-      }
+  display: none;
+  align-items: center;
+  margin-right: 50px;
+  
+  cursor: pointer;
+
+  .menu-text {
+    margin-right: 10px;
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase; // optionnel
+    color: $Color4;
+  }
+
+  .burger-lines {
+    display: flex;
+    flex-direction: column;
+    
+    span {
+      height: 2px;
+      width: 25px;
+      background-color: $Color4;
+      margin: 4px 0;
+      transition: 0.3s;
+      
+    }
+  }
+}
+
   
       ul {
         display: flex;
@@ -56,10 +74,11 @@ nav {
           cursor: pointer;
   
           a {
-            color: inherit;
-            text-decoration: none;
+            color: $Color5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             &:hover {
-              color: $Color1;
+              color: $Color4;
             }
           }
         }
@@ -101,54 +120,55 @@ nav {
         }
   
         ul {
-          position: fixed; // Changé de absolute à fixed
-          top: 0;
-          right: -100%;
-          background-color: $Color2;
-          flex-direction: column;
-          width: 100%;
-          height: 100vh;
-          overflow-y: auto; // Permet le défilement si nécessaire
-          transition: right 0.5s ease-in-out;
-          padding-top: 60px; // Espace pour la croix de fermeture
-  
-          &.active {
-            right: 0;
-          }
-  
-          .closeMenu {
-            display: block;
-            width: 40px;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            cursor: pointer;
-          }
-  
-          li {
-            margin: 10px 0;
-            padding: 20px;
-            letter-spacing: 5px;
-  
-            a {
-              color: white;
-              opacity: 0;
-              transform: translateY(20px);
-              transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            }
-          }
-  
-          &.active li a {
-            opacity: 1;
-            transform: translateY(0);
-          }
-  
-          @for $i from 1 through 7 {
-            li:nth-child(#{$i}) a {
-              transition-delay: $i * 0.1s;
-            }
-          }
-        }
+  position: fixed;
+  top: -95%; // <- Menu caché en haut
+  right: 0;
+  background-color: white;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  transition: top 0.5s ease-in-out; // <- Transition sur le top
+  padding-top: 160px;
+
+  &.active {
+    top: 0; // <- Le menu descend
+  }
+
+  .closeMenu {
+    display: block;
+    width: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  li {
+    margin: 10px 0;
+    padding: 20px;
+    letter-spacing: 5px;
+
+   a {
+  color: rgb(39, 37, 37);
+  opacity: 0;
+  transform: translateY(40px); // Effet plus visible
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+  }
+
+  &.active li a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@for $i from 1 through 7 {
+  li:nth-child(#{$i}) a {
+    transition-delay: $i * 0.2s; // Apparition plus lente et fluide
+  }
+}
+}
+
       }
     }
   }
