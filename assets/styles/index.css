@@ -219,7 +219,7 @@ nav .navContainer .btn:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,7 +236,7 @@ nav .navContainer .btn:hover {
   font-family: Rochester, serif;
   font-weight: 100;
   margin-bottom: 10px;
-  color: rgb(255, 198, 50);
+  color: #C0C72E;
 }
 .hero-section .hero-content .tax-credit {
   margin-top: 30px;
@@ -270,7 +270,7 @@ nav .navContainer .btn:hover {
 }
 .hero-section .hero-content .cta-buttons .btn-cta {
   padding: 12px 24px;
-  background-color: rgb(255, 198, 50);
+  background-color: #C0C72E;
   color: white;
   border-radius: 8px;
   text-decoration: none;
