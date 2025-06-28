@@ -22,7 +22,7 @@ nav {
     padding-left: 30px;
     position: relative;
     z-index: 3;
-    // transform: translateY(50%);
+    transform: translateY(50%);
     transition: transform 0.3s ease;
 
     @media (max-width: 900px) {
@@ -42,7 +42,7 @@ nav {
   .menu-text {
     margin-right: 10px;
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase; // optionnel
     color: $Color4;
   }

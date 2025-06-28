@@ -55,6 +55,7 @@ nav .navContainer .logo-nav {
   padding-left: 30px;
   position: relative;
   z-index: 3;
+  transform: translateY(50%);
   transition: transform 0.3s ease;
 }
 @media (max-width: 900px) {
@@ -73,7 +74,7 @@ nav .navContainer .menu-burger {
 nav .navContainer .menu-burger .menu-text {
   margin-right: 10px;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   color: #C0C72E;
 }
