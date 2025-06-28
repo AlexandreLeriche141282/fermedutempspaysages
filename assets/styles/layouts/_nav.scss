@@ -16,29 +16,28 @@ nav {
     align-items: center;
     max-width: 1800px;
     margin: 0 auto;
-    padding: 10px 20px; // réduit sur mobile
-    background-color: green;
+    padding: 10px 20px;
     flex-wrap: wrap;
+    position: relative;
 
     .logo-nav {
       width: 8vw;
       padding-left: 30px;
+      z-index: 300;
 
       @media (max-width: 900px) {
         width: 100px;
         padding-left: 10px;
       }
-
-      // SUPPRESSION de transform: translateY
     }
 
     .menu-burger {
       display: none;
       align-items: center;
-      background-color: red;
       cursor: pointer;
       margin-left: auto;
-      z-index: 200;
+      z-index: 400;
+      background-color: transparent;
 
       .menu-text {
         margin-right: 10px;
@@ -62,6 +61,21 @@ nav {
       }
     }
 
+    .closeMenu {
+      display: none;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 500;
+
+      &.visible {
+        display: block;
+      }
+    }
+
     ul {
       display: flex;
       margin: 0 auto;
@@ -82,30 +96,8 @@ nav {
           }
         }
       }
-    }
 
-    .btn {
-      padding: 8px 16px;
-      font-size: 14px;
-      background-color: $Color1;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-
-      @media (max-width: 900px) {
-        padding: 6px 10px;
-      }
-    }
-  }
-
-  @media (max-width: 1300px) {
-    .navContainer {
-      .menu-burger {
-        display: flex;
-      }
-
-      ul {
+      @media (max-width: 1300px) {
         position: fixed;
         top: -100%;
         right: 0;
@@ -118,7 +110,8 @@ nav {
         justify-content: center;
         overflow-y: auto;
         transition: top 0.3s ease;
-        padding-top: 80px; // réduit ici
+        padding-top: 80px;
+        z-index: 200;
 
         &.active {
           top: 0;
@@ -126,6 +119,7 @@ nav {
 
         li {
           margin: 15px 0;
+
           a {
             font-size: 20px;
             opacity: 0;
@@ -144,6 +138,14 @@ nav {
             transition-delay: $i * 0.1s;
           }
         }
+      }
+    }
+  }
+
+  @media (max-width: 1300px) {
+    .navContainer {
+      .menu-burger {
+        display: flex;
       }
     }
   }
