@@ -1,177 +1,179 @@
-nav {
-    width: 100%;
-    height: 80px;
-    background-color: white;
-    font-weight: 400;
-    transition: 0.3s;
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    right: 0;
-    top: 0;
-  
-    .navContainer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 auto;
-      padding: 0.5vw 0;
-      max-width: 1800px;
-      background-color: rgb(69, 95, 69);
-  
-      .logo-nav {
-    width: 8vw;
-    padding-left: 30px;
-    position: relative;
-    z-index: 3;
-    transform: translateY(50%);
-    transition: transform 0.3s ease;
-
-    @media (max-width: 900px) {
-      width: 100px;
-      padding-left: 10px;
-      // transform: none;
-    }
-  }
-  
-      .menu-burger {
-  display: none;
-  align-items: center;
-  margin-right: 50px;
-  background-color: red;
-  
-  cursor: pointer;
-
-  .menu-text {
-    margin-right: 10px;
-    font-size: 26px;
-    font-weight: 600;
-    text-transform: uppercase; // optionnel
-    color: $Color4;
-  }
-
-  .burger-lines {
-    display: flex;
-    flex-direction: column;
-    
-    span {
-      height: 2px;
-      width: 25px;
-      background-color: $Color4;
-      margin: 4px 0;
-      transition: 0.3s;
-      
-    }
-  }
+/* RESET IMPORTANT POUR MOBILE */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-  
-      ul {
+nav {
+  width: 100%;
+  background-color: white;
+  font-weight: 400;
+  transition: 0.3s;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  min-height: 70px;
+
+  .navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.5vw 0;
+    max-width: 1800px;
+    background-color: green;
+
+    .logo-nav {
+      width: 8vw;
+      padding-left: 30px;
+      position: relative;
+      z-index: 3;
+      transition: transform 0.3s ease;
+
+      @media (max-width: 900px) {
+        width: 100px;
+        padding-left: 10px;
+        transform: none; // ✅ Fixe le débordement mobile
+      }
+    }
+
+    .menu-burger {
+      display: none;
+      align-items: center;
+      margin-right: 50px;
+      background-color: red;
+      cursor: pointer;
+
+      .menu-text {
+        margin-right: 10px;
+        font-size: 26px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $Color4;
+      }
+
+      .burger-lines {
         display: flex;
-        margin: 0 auto;
-        padding: 0;
-        list-style: none;
-  
-        li {
-          margin: 0 20px;
-          cursor: pointer;
-  
-          a {
-            color: $Color5;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            &:hover {
-              color: $Color4;
-            }
+        flex-direction: column;
+
+        span {
+          height: 2px;
+          width: 25px;
+          background-color: $Color4;
+          margin: 4px 0;
+          transition: 0.3s;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 0 20px;
+        cursor: pointer;
+
+        a {
+          color: $Color5;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+
+          &:hover {
+            color: $Color4;
           }
         }
       }
-  
-      .closeMenu {
-        display: none;
-      }
-  
-      .btn {
-        cursor: pointer;
-        border: 2px solid $Color1;
-        background-color: $Color1;
-        border-radius: 10px;
-        padding: 10px;
-        color: #1A237E;
-        font-weight: 600;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-        font-size: calc(0.5vw + 8px);
-        text-transform: uppercase;
-        @media (max-width: 900px) {
-          margin-right: 10px;
-          padding: 5px;
-        }
-  
-        &:hover {
-          background-color: white;
-          color: $Color1;
-          transform: scale(1.01);
-        }
-      }
     }
-  
-    @media (max-width: 1300px) {
-      .navContainer {
-        .menu-burger {
-          display: flex;
-        }
-  
-        ul {
-  position: fixed;
-  top: -100%; // <- Menu caché en haut
-  right: 0;
-  background-color: white;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  overflow-y: auto;
-  transition: top 0.5s ease-in-out; // <- Transition sur le top
-  padding-top: 160px;
 
-  &.active {
-    top: 0; // <- Le menu descend
-  }
+    .closeMenu {
+      display: none;
+    }
 
-  .closeMenu {
-    display: block;
-    width: 40px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    cursor: pointer;
-  }
+    .btn {
+      cursor: pointer;
+      border: 2px solid $Color1;
+      background-color: $Color1;
+      border-radius: 10px;
+      padding: 10px;
+      color: #1A237E;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      font-size: calc(0.5vw + 8px);
+      text-transform: uppercase;
 
-  li {
-    margin: 10px 0;
-    padding: 20px;
-    letter-spacing: 5px;
+      @media (max-width: 900px) {
+        margin-right: 10px;
+        padding: 5px;
+      }
 
-   a {
-  color: rgb(39, 37, 37);
-  opacity: 0;
-  transform: translateY(40px); // Effet plus visible
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-}
-  }
-
-  &.active li a {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@for $i from 1 through 7 {
-  li:nth-child(#{$i}) a {
-    transition-delay: $i * 0.2s; // Apparition plus lente et fluide
-  }
-}
-}
-
+      &:hover {
+        background-color: white;
+        color: $Color1;
+        transform: scale(1.01);
       }
     }
   }
+
+  @media (max-width: 1300px) {
+    .navContainer {
+      .menu-burger {
+        display: flex;
+      }
+
+      ul {
+        position: fixed;
+        top: -100%;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+        transition: top 0.5s ease-in-out;
+        padding-top: 160px;
+
+        &.active {
+          top: 0;
+        }
+
+        .closeMenu {
+          display: block;
+          width: 40px;
+          position: absolute;
+          right: 20px;
+          top: 20px;
+          cursor: pointer;
+        }
+
+        li {
+          margin: 10px 0;
+          padding: 20px;
+          letter-spacing: 5px;
+
+          a {
+            color: rgb(39, 37, 37);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+          }
+        }
+
+        &.active li a {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        @for $i from 1 through 7 {
+          li:nth-child(#{$i}) a {
+            transition-delay: $i * 0.2s;
+          }
+        }
+      }
+    }
+  }
+}

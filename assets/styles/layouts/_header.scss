@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  margin-top: 80px; // compense la nav fixe
+  margin-top: 100px; // ✅ Ajusté selon la vraie hauteur de nav
   z-index: 0;
 
   img {
@@ -19,7 +19,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); // filtre sombre
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,24 +33,24 @@
     max-width: 900px;
 
     .pre-title {
-  font-size: 5rem;
-  font-family: $font2;
-  font-weight: 100;
-  margin-bottom: 10px;
-  color: $Color4; // ou white si tu veux uniforme
-}
+      font-size: 5rem;
+      font-family: $font2;
+      font-weight: 100;
+      margin-bottom: 10px;
+      color: $Color4;
+    }
 
-.tax-credit {
-  margin-top: 30px;
+    .tax-credit {
+      margin-top: 30px;
 
-  img {
-    max-width: 250px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-}
+      img {
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    }
 
     h1 {
       font-size: 3rem;
