@@ -28,7 +28,7 @@ nav {
     @media (max-width: 900px) {
       width: 100px;
       padding-left: 10px;
-      transform: none;
+      // transform: none;
     }
   }
   
@@ -127,8 +127,6 @@ nav {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  height: 100dvh; // <- FIX: Hauteur dynamique pour mobile
-  min-height: 100vh; // <- FIX: Hauteur minimum garantie
   overflow-y: auto;
   transition: top 0.5s ease-in-out; // <- Transition sur le top
   padding-top: 160px;

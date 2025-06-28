@@ -62,7 +62,6 @@ nav .navContainer .logo-nav {
   nav .navContainer .logo-nav {
     width: 100px;
     padding-left: 10px;
-    transform: none;
   }
 }
 nav .navContainer .menu-burger {
@@ -146,8 +145,6 @@ nav .navContainer .btn:hover {
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    height: 100dvh;
-    min-height: 100vh;
     overflow-y: auto;
     transition: top 0.5s ease-in-out;
     padding-top: 160px;
