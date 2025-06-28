@@ -59,7 +59,7 @@ nav .navContainer .logo-nav {
 }
 @media (max-width: 900px) {
   nav .navContainer .logo-nav {
-    width: 150px;
+    width: 130px;
     padding-left: 10px;
     transform: none;
   }
