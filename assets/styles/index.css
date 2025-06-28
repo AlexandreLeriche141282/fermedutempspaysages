@@ -49,6 +49,7 @@ nav .navContainer {
   margin: 0 auto;
   padding: 0.5vw 0;
   max-width: 1800px;
+  background-color: green;
 }
 nav .navContainer .logo-nav {
   width: 8vw;
@@ -68,6 +69,7 @@ nav .navContainer .menu-burger {
   display: none;
   align-items: center;
   margin-right: 50px;
+  background-color: red;
   cursor: pointer;
 }
 nav .navContainer .menu-burger .menu-text {
