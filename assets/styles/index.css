@@ -139,7 +139,7 @@ nav .navContainer .btn:hover {
   }
   nav .navContainer ul {
     position: fixed;
-    top: -95%;
+    top: -100%;
     right: 0;
     background-color: white;
     flex-direction: column;
