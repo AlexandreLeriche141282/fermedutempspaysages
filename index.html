@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/styles/index.css?v=2.8">
+    <link rel="stylesheet" href="./assets/styles/index.css?v=2.9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 </head>
@@ -81,11 +81,32 @@
   <section class="image-section">
     <img src="./assets/img/fleur-coloree-dans-le-jardin.jpg" alt="Exemple de réalisation paysagère" />
   </section>
+
+  
 </main>
 
 <footer>
 
 </footer>
+<button class="cookie-settings" aria-label="Paramètres des cookies">
+  <i class="fa-solid fa-gear"></i> <!-- Nécessite Font Awesome -->
+</button>
+<div class="cookie-modal" id="cookieModal">
+  <div class="cookie-modal-content">
+    <h2>Préférences de cookies</h2>
+    <p>Vous pouvez choisir quels types de cookies vous souhaitez autoriser :</p>
+
+    <label><input type="checkbox" checked disabled /> Cookies essentiels (obligatoires)</label><br />
+    <label><input type="checkbox" id="analytics-cookies" /> Cookies analytiques</label><br />
+    <label><input type="checkbox" id="ads-cookies" /> Cookies publicitaires</label><br />
+
+    <div class="modal-actions">
+      <button id="savePreferences">Enregistrer</button>
+      <button id="closeModal">Fermer</button>
+    </div>
+  </div>
+</div>
+
 <script src="./index.js"></script>
 </body>
 </html>

@@ -29,3 +29,56 @@ window.addEventListener("scroll", () => {
 
 });
 // ---------------------------------------------------------
+
+// ---------- Apparition credit-impot --------------------- //
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeUps = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    fadeUps.forEach(el => observer.observe(el));
+  });
+
+//   -------------------------------------------------------
+
+// ------------------ Gestion Cookies ----------------------
+document.addEventListener("DOMContentLoaded", function () {
+    const settingsButton = document.querySelector(".cookie-settings");
+    const modal = document.getElementById("cookieModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const saveBtn = document.getElementById("savePreferences");
+
+    // Ouvre le panneau
+    settingsButton.addEventListener("click", () => {
+      modal.classList.add("visible");
+    });
+
+    // Ferme le panneau
+    closeModalBtn.addEventListener("click", () => {
+      modal.classList.remove("visible");
+    });
+
+    // Sauvegarde des préférences (exemple simple)
+    saveBtn.addEventListener("click", () => {
+      const analytics = document.getElementById("analytics-cookies").checked;
+      const ads = document.getElementById("ads-cookies").checked;
+
+      // Exemple de stockage en localStorage
+      localStorage.setItem("cookiePreferences", JSON.stringify({ analytics, ads }));
+
+      alert("Préférences sauvegardées !");
+      modal.classList.remove("visible");
+    });
+  });
+  //  -----------------------------------------------------------

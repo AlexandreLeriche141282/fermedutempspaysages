@@ -20,6 +20,31 @@ $Color5:#747474;
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto;
+    .cookie-settings {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  i {
+    font-size: 28px;
+    color: #333;
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
   }
   @mixin childCenter {
     display: flex;
@@ -29,6 +54,7 @@ $Color5:#747474;
   body{
     background-color: white;
     color: $Color2;
+    
     h3{
       font-style: italic;
     }
