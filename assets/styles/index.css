@@ -48,6 +48,22 @@ body .green-top-line {
   left: 0;
   z-index: 9999;
 }
+body .svg-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+body .svg-separator img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 body h3 {
   font-style: italic;
 }
@@ -261,13 +277,14 @@ nav .navContainer ul li a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 .hero-section .hero-content {
   color: white;
   text-align: center;
   z-index: 2;
   max-width: 900px;
+  padding-top: 20px;
 }
 .hero-section .hero-content .pre-title {
   font-size: clamp(3.5rem, 8vw, 5rem);
@@ -358,18 +375,15 @@ nav .navContainer ul li a:hover {
   max-width: 100px;
   width: 100%;
   height: auto;
-  border-radius: 10px;
 }
 
-.contenu-principal {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
 .contenu-principal .bloc-texte {
+  max-width: 1500px;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  padding: 2rem 2rem 0 2rem;
+  margin: auto;
 }
 .contenu-principal .bloc-texte .texte {
   flex: 1 1 45%;
@@ -405,6 +419,11 @@ nav .navContainer ul li a:hover {
   line-height: 1.6;
   color: white;
 }
+.contenu-principal .image-section {
+  padding: 0 2rem 2rem 2rem;
+  max-width: 1500px;
+  margin: auto;
+}
 .contenu-principal .image-section img {
   width: 100%;
   height: auto;
@@ -413,6 +432,219 @@ nav .navContainer ul li a:hover {
   border-bottom-right-radius: 40px;
 }
 
+.a-propos-et-services {
+  background-color: #F3F2EB;
+  padding: 4rem 2rem;
+  -webkit-clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
+}
+.a-propos-et-services .container-apropos {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.a-propos-et-services .presentation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .a-propos-et-services .presentation-section {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+.a-propos-et-services .presentation-entreprise {
+  flex: 1;
+  min-width: 0;
+}
+.a-propos-et-services .presentation-entreprise h2 {
+  font-size: clamp(3rem, 4vw, 4rem);
+  margin-bottom: 1rem;
+  color: #C0D047;
+  font-weight: 100;
+  font-family: Rochester, serif;
+  text-align: center;
+}
+.a-propos-et-services .presentation-entreprise h3 {
+  color: #747474;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.a-propos-et-services .presentation-entreprise p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+  padding-top: 20px;
+  text-align: justify;
+}
+.a-propos-et-services .svg-separator {
+  text-align: center;
+  margin: 1rem 0;
+}
+.a-propos-et-services .svg-separator img {
+  max-width: 100px;
+  height: auto;
+}
+.a-propos-et-services .photo-presentation {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.a-propos-et-services .photo-presentation:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+.a-propos-et-services .photo-presentation img {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.a-propos-et-services .photo-presentation img:hover {
+  transform: scale(1.05);
+}
+.a-propos-et-services .photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(44, 85, 48, 0.8));
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+.a-propos-et-services .prestations-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .a-propos-et-services .prestations-section {
+    flex-direction: row-reverse;
+    gap: 3rem;
+  }
+}
+.a-propos-et-services .prestations {
+  flex: 1;
+  min-width: 0;
+}
+.a-propos-et-services .prestations h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #C0D047;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .a-propos-et-services .prestations h3 {
+    text-align: left;
+  }
+}
+.a-propos-et-services .prestations ul {
+  list-style: none;
+  padding: 0;
+}
+.a-propos-et-services .prestations ul li {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+.a-propos-et-services .prestations ul li:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(5px);
+}
+.a-propos-et-services .prestations ul li i {
+  color: #2e7d32;
+  font-size: 1.2rem;
+  min-width: 20px;
+}
+.a-propos-et-services .photo-prestations {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.a-propos-et-services .photo-prestations:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+.a-propos-et-services .photo-prestations img {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.a-propos-et-services .photo-prestations img:hover {
+  transform: scale(1.05);
+}
+@media (max-width: 767px) {
+  .a-propos-et-services .container-apropos {
+    gap: 3rem;
+  }
+  .a-propos-et-services .photo-presentation,
+  .a-propos-et-services .photo-prestations {
+    max-width: 100%;
+  }
+  .a-propos-et-services .photo-presentation img,
+  .a-propos-et-services .photo-prestations img {
+    height: 350px;
+  }
+}
+.a-propos-et-services .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+.a-propos-et-services .fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeInLeft 1s ease-out forwards;
+}
+.a-propos-et-services .fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .cookie-modal {
   position: fixed;
   top: 0;

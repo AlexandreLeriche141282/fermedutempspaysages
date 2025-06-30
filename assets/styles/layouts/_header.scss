@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px;
+    padding: 0 30px;
   }
 
   .hero-content {
@@ -47,7 +47,7 @@
     text-align: center;
     z-index: 2;
     max-width: 900px;
-    // padding-top: 10px;
+    padding-top: 20px;
 
     .pre-title {
       font-size: clamp(3.5rem, 8vw, 5rem);
@@ -155,7 +155,7 @@
     max-width: 100px; // ou 300px selon ce que tu préfères
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    // border-radius: 10px;
   }
 }
 

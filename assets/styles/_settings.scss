@@ -64,6 +64,26 @@ $Color5:#747474;
   z-index: 9999;
 }
 
+.svg-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+
+
     h3{
       font-style: italic;
     }
