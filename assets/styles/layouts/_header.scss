@@ -147,6 +147,18 @@
       }
     }
 
-    
+    .hero-image {
+  margin-top: 2rem;
+  text-align: center;
+
+  img {
+    max-width: 100px; // ou 300px selon ce que tu préfères
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+
   }
 }

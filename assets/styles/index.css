@@ -39,6 +39,15 @@ body {
   background-color: white;
   color: rgb(56, 45, 94);
 }
+body .green-top-line {
+  height: 4px;
+  background-color: #C0D047;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
 body h3 {
   font-style: italic;
 }
@@ -340,6 +349,16 @@ nav .navContainer ul li a:hover {
     width: 100%;
     text-align: center;
   }
+}
+.hero-section .hero-content .hero-image {
+  margin-top: 2rem;
+  text-align: center;
+}
+.hero-section .hero-content .hero-image img {
+  max-width: 100px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .contenu-principal {

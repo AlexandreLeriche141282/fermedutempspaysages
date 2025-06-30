@@ -54,7 +54,16 @@ $Color5:#747474;
   body{
     background-color: white;
     color: $Color2;
-    
+    .green-top-line {
+  height: 4px;
+  background-color:$Color4;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
     h3{
       font-style: italic;
     }
