@@ -133,3 +133,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 rect.top < window.innerHeight && rect.bottom > 0
             );
         }
+
+        // ----------- massif section ----------------------
+        // Optionnel : agrandir l'image au clic (lightbox basique)
+document.querySelectorAll('.massif-photo').forEach(img => {
+  img.addEventListener('click', () => {
+    const overlay = document.createElement('div');
+    overlay.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1000;';
+    const bigImg = document.createElement('img');
+    bigImg.src = img.src;
+    bigImg.style = 'max-width:90vw;max-height:90vh;border-radius:16px;box-shadow:0 8px 32px rgba(46,125,50,0.25);';
+    overlay.appendChild(bigImg);
+    overlay.addEventListener('click', () => document.body.removeChild(overlay));
+    document.body.appendChild(overlay);
+  });
+});

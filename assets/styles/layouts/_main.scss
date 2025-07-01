@@ -50,16 +50,25 @@
   }
 
   .image-section {
-    padding: 0 2rem 2rem 2rem;
-max-width: 1500px;
-margin: auto;
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    
-    }
+  padding: 0 2rem 2rem 2rem;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Limiter la hauteur de l'image sur desktop */
+@media (min-width: 900px) {
+  .image-section img {
+    max-height: 500px; /* Ajuste la valeur selon ton besoin */
+    object-fit: cover; /* Optionnel : pour couper l'image si elle dépasse */
   }
+}
+
 }
