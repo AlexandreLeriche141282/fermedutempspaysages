@@ -30,27 +30,27 @@ window.addEventListener("scroll", () => {
 });
 // ---------------------------------------------------------
 
-// ---------- Apparition credit-impot --------------------- //
-document.addEventListener("DOMContentLoaded", () => {
-    const fadeUps = document.querySelectorAll(".fade-up");
+// // ---------- Apparition credit-impot --------------------- //
+// document.addEventListener("DOMContentLoaded", () => {
+//     const fadeUps = document.querySelectorAll(".fade-up");
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
+//     const observer = new IntersectionObserver(
+//       entries => {
+//         entries.forEach(entry => {
+//           if (entry.isIntersecting) {
+//             entry.target.classList.add("in-view");
+//           }
+//         });
+//       },
+//       {
+//         threshold: 0.2,
+//       }
+//     );
 
-    fadeUps.forEach(el => observer.observe(el));
-  });
+//     fadeUps.forEach(el => observer.observe(el));
+//   });
 
-//   -------------------------------------------------------
+// //   -------------------------------------------------------
 
 // ------------------ Gestion Cookies ----------------------
 document.addEventListener("DOMContentLoaded", function () {
