@@ -446,8 +446,6 @@ nav .navContainer ul li a:hover {
 .a-propos-et-services {
   background-color: #f3f2eb;
   padding: 4rem 2rem;
-  -webkit-clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
-          clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
 }
 .a-propos-et-services .container-apropos {
   display: flex;
@@ -834,33 +832,4 @@ nav .navContainer ul li a:hover {
   .massif-section .massif-gallery .massif-photo {
     height: 160px;
   }
-}
-
-/* Animations (inchangées) */
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.fade-in-left {
-  animation: fadeInLeft 1s both;
-}
-
-.fade-in-right {
-  animation: fadeInRight 1s both;
 }/*# sourceMappingURL=index.css.map */
