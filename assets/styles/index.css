@@ -300,6 +300,7 @@ nav .navContainer ul li a:hover {
 .hero-section .hero-content h1 {
   font-size: clamp(1.5rem, 5vw, 2.9rem);
   margin-bottom: 20px;
+  margin-top: 20px;
   font-weight: 700;
   text-transform: uppercase;
   color: #C0D047;

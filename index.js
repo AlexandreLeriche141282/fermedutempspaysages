@@ -31,24 +31,24 @@ window.addEventListener("scroll", () => {
 // ---------------------------------------------------------
 
 // // ---------- Apparition credit-impot --------------------- //
-// document.addEventListener("DOMContentLoaded", () => {
-//     const fadeUps = document.querySelectorAll(".fade-up");
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeUps = document.querySelectorAll(".fade-up");
 
-//     const observer = new IntersectionObserver(
-//       entries => {
-//         entries.forEach(entry => {
-//           if (entry.isIntersecting) {
-//             entry.target.classList.add("in-view");
-//           }
-//         });
-//       },
-//       {
-//         threshold: 0.2,
-//       }
-//     );
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
 
-//     fadeUps.forEach(el => observer.observe(el));
-//   });
+    fadeUps.forEach(el => observer.observe(el));
+  });
 
 // //   -------------------------------------------------------
 
@@ -84,55 +84,55 @@ document.addEventListener("DOMContentLoaded", function () {
   //  -----------------------------------------------------------
 
   //  // Animation au scroll - Version basée sur les keyframes CSS
-  //       const observerOptions = {
-  //           threshold: 0.1,
-  //           rootMargin: '0px 0px -50px 0px'
-  //       };
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-  //       const observer = new IntersectionObserver((entries) => {
-  //           entries.forEach(entry => {
-  //               if (entry.isIntersecting) {
-  //                   entry.target.style.animationPlayState = 'running';
-  //               }
-  //           });
-  //       }, observerOptions);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
 
-  //       // Observer tous les éléments avec animations
-  //       document.addEventListener('DOMContentLoaded', function() {
-  //           // Pause les animations au début
-  //           document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
-  //               el.style.animationPlayState = 'paused';
-  //               observer.observe(el);
-  //           });
+        // Observer tous les éléments avec animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pause les animations au début
+            document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
 
-  //           // Animation séquentielle pour la liste des prestations
-  //           const prestationsList = document.querySelectorAll('.prestations ul li');
-  //           prestationsList.forEach((item, index) => {
-  //               setTimeout(() => {
-  //                   if (isElementInViewport(item)) {
-  //                       item.classList.add('visible');
-  //                   }
-  //               }, index * 100);
-  //           });
+            // Animation séquentielle pour la liste des prestations
+            const prestationsList = document.querySelectorAll('.prestations ul li');
+            prestationsList.forEach((item, index) => {
+                setTimeout(() => {
+                    if (isElementInViewport(item)) {
+                        item.classList.add('visible');
+                    }
+                }, index * 100);
+            });
 
-  //           // Vérifier la visibilité des éléments de liste au scroll
-  //           window.addEventListener('scroll', () => {
-  //               prestationsList.forEach((item, index) => {
-  //                   if (isElementInViewport(item) && !item.classList.contains('visible')) {
-  //                       setTimeout(() => {
-  //                           item.classList.add('visible');
-  //                       }, index * 100);
-  //                   }
-  //               });
-  //           });
-  //       });
+            // Vérifier la visibilité des éléments de liste au scroll
+            window.addEventListener('scroll', () => {
+                prestationsList.forEach((item, index) => {
+                    if (isElementInViewport(item) && !item.classList.contains('visible')) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100);
+                    }
+                });
+            });
+        });
 
-  //       function isElementInViewport(el) {
-  //           const rect = el.getBoundingClientRect();
-  //           return (
-  //               rect.top < window.innerHeight && rect.bottom > 0
-  //           );
-  //       }
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight && rect.bottom > 0
+            );
+        }
 
         // ----------- massif section ----------------------
         // Optionnel : agrandir l'image au clic (lightbox basique)
