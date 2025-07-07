@@ -828,7 +828,7 @@ nav .navContainer ul li a:hover {
     display: block;
     width: 100%;
     max-width: 370px;
-    height: 160px;
+    height: 250px;
     border-radius: 14px;
     box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
     -o-object-fit: cover;
@@ -873,6 +873,20 @@ nav .navContainer ul li a:hover {
 
 .haie-section {
   background: white;
+  margin-top: 20px;
+  position: relative;
+}
+.haie-section:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  height: 60px;
+  background: linear-gradient(to bottom, white 0%, #f3f2eb 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 .haie-section .container-haie {
   display: flex;
@@ -963,7 +977,7 @@ nav .navContainer ul li a:hover {
     display: block;
     width: 100%;
     max-width: 370px;
-    height: 160px;
+    height: 250px;
     border-radius: 14px;
     box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
     -o-object-fit: cover;
@@ -974,6 +988,115 @@ nav .navContainer ul li a:hover {
     transition: box-shadow 0.3s;
   }
   .haie-section .haie-gallery .haie-photo {
+    height: 160px;
+  }
+}
+
+.entretien-section {
+  padding: 3rem 0;
+  background-color: #f3f2eb;
+  position: relative;
+}
+.entretien-section .container-entretien {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.entretien-section .entretien-text {
+  flex: 1 1 340px;
+  min-width: 320px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.entretien-section .entretien-text h2 {
+  font-size: clamp(3rem, 4vw, 4rem);
+  margin-bottom: 1rem;
+  color: #C0D047;
+  font-weight: 100;
+  font-family: Rochester, serif;
+  text-align: center;
+}
+.entretien-section .entretien-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  padding-top: 15px;
+}
+.entretien-section .entretien-text .entretien-arguments {
+  list-style: disc inside;
+  color: #2e7d32;
+  font-weight: 500;
+  margin-left: 0;
+  padding-left: 0;
+}
+.entretien-section .entretien-text .entretien-arguments li {
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+  color: #2e7d32;
+  font-style: oblique;
+}
+.entretien-section .entretien-text .entretien-photo-mobile {
+  display: none;
+  width: 100%;
+  max-width: 370px;
+  height: 220px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin: 1.2rem 0;
+  transition: box-shadow 0.3s;
+}
+.entretien-section .entretien-gallery {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+.entretien-section .entretien-gallery .entretien-photo {
+  width: 100%;
+  max-width: 370px;
+  height: 320px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: box-shadow 0.3s;
+}
+.entretien-section .entretien-gallery .entretien-photo:hover {
+  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.19);
+}
+@media (max-width: 900px) {
+  .entretien-section .container-entretien {
+    flex-direction: column;
+  }
+  .entretien-section .entretien-gallery {
+    display: none;
+  }
+  .entretien-section .entretien-text .entretien-photo-mobile {
+    display: block;
+    width: 100%;
+    max-width: 370px;
+    height: 250px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    margin: 1.2rem 0;
+    transition: box-shadow 0.3s;
+  }
+  .entretien-section .entretien-gallery .entretien-photo {
     height: 160px;
   }
 }/*# sourceMappingURL=index.css.map */
