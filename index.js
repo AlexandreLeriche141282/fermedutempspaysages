@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // ----------- massif section ----------------------
         // Optionnel : agrandir l'image au clic (lightbox basique)
-document.querySelectorAll('.massif-photo').forEach(img => {
+document.querySelectorAll('.massif-photo, .renovation-photo, .haie-photo, .entretien-photo').forEach(img => {
   img.addEventListener('click', () => {
     const overlay = document.createElement('div');
     overlay.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1000;';

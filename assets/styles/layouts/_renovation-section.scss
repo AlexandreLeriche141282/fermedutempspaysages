@@ -1,0 +1,118 @@
+.renovation-section {
+  padding: 3rem 0;
+  background: $Color4;
+  position: relative;
+
+  
+  .container-renovation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .renovation-text {
+    flex: 1 1 340px;
+    min-width: 320px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    h2 {
+      font-size: clamp(3rem, 4vw, 4rem);
+      margin-bottom: 1rem;
+      color: white;
+      font-weight: 100;
+      font-family: $font2;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      padding-top: 15px;
+    }
+
+    .renovation-arguments {
+      list-style: disc inside;
+      color: #2e7d32;
+      font-weight: 500;
+      margin-left: 0;
+      padding-left: 0;
+
+      li {
+        margin-bottom: 0.7rem;
+        font-size: 1.05rem;
+        color: #2e7d32;
+        font-style: oblique;
+      }
+    }
+
+    // Par défaut, les images "mobile" sont cachées sur desktop
+    .renovation-photo-mobile {
+      display: none;
+      width: 100%;
+      max-width: 370px;
+      height: 220px; // Hauteur desktop
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+      object-fit: cover;
+      object-position: center;
+      margin: 1.2rem 0;
+      transition: box-shadow 0.3s;
+    }
+  }
+
+  .renovation-gallery {
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+
+    .renovation-photo {
+      width: 100%;
+      max-width: 370px;
+      height: 320px; // Hauteur desktop
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+      object-fit: cover;
+      object-position: center;
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 0 8px 32px rgba(46, 125, 50, 0.19);
+      }
+    }
+  }
+
+  // Responsive : sur mobile, on affiche les images intégrées au texte et on masque la galerie latérale
+  @media (max-width: 900px) {
+    .container-renovation {
+      flex-direction: column;
+    }
+    .renovation-gallery {
+      display: none;
+    }
+    .renovation-text {
+      .renovation-photo-mobile {
+        display: block;
+        width: 100%;
+        max-width: 370px;
+        height: 250px; // Hauteur mobile
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+        object-fit: cover;
+        object-position: center;
+        margin: 1.2rem 0;
+        transition: box-shadow 0.3s;
+      }
+    }
+    .renovation-gallery .renovation-photo {
+      height: 160px; // Hauteur mobile pour cohérence si jamais affiché
+    }
+  }
+}

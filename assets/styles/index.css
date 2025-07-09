@@ -997,6 +997,18 @@ nav .navContainer ul li a:hover {
   background-color: #f3f2eb;
   position: relative;
 }
+.entretien-section:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  height: 60px;
+  background: linear-gradient(to bottom, #f3f2eb 0%, #C0D047 100%);
+  z-index: 2;
+  pointer-events: none;
+}
 .entretien-section .container-entretien {
   display: flex;
   flex-wrap: wrap;
@@ -1097,6 +1109,115 @@ nav .navContainer ul li a:hover {
     transition: box-shadow 0.3s;
   }
   .entretien-section .entretien-gallery .entretien-photo {
+    height: 160px;
+  }
+}
+
+.renovation-section {
+  padding: 3rem 0;
+  background: #C0D047;
+  position: relative;
+}
+.renovation-section .container-renovation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.renovation-section .renovation-text {
+  flex: 1 1 340px;
+  min-width: 320px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.renovation-section .renovation-text h2 {
+  font-size: clamp(3rem, 4vw, 4rem);
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 100;
+  font-family: Rochester, serif;
+  text-align: center;
+}
+.renovation-section .renovation-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  padding-top: 15px;
+}
+.renovation-section .renovation-text .renovation-arguments {
+  list-style: disc inside;
+  color: #2e7d32;
+  font-weight: 500;
+  margin-left: 0;
+  padding-left: 0;
+}
+.renovation-section .renovation-text .renovation-arguments li {
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+  color: #2e7d32;
+  font-style: oblique;
+}
+.renovation-section .renovation-text .renovation-photo-mobile {
+  display: none;
+  width: 100%;
+  max-width: 370px;
+  height: 220px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin: 1.2rem 0;
+  transition: box-shadow 0.3s;
+}
+.renovation-section .renovation-gallery {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+.renovation-section .renovation-gallery .renovation-photo {
+  width: 100%;
+  max-width: 370px;
+  height: 320px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: box-shadow 0.3s;
+}
+.renovation-section .renovation-gallery .renovation-photo:hover {
+  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.19);
+}
+@media (max-width: 900px) {
+  .renovation-section .container-renovation {
+    flex-direction: column;
+  }
+  .renovation-section .renovation-gallery {
+    display: none;
+  }
+  .renovation-section .renovation-text .renovation-photo-mobile {
+    display: block;
+    width: 100%;
+    max-width: 370px;
+    height: 250px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(46, 125, 50, 0.13);
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    margin: 1.2rem 0;
+    transition: box-shadow 0.3s;
+  }
+  .renovation-section .renovation-gallery .renovation-photo {
     height: 160px;
   }
 }/*# sourceMappingURL=index.css.map */
