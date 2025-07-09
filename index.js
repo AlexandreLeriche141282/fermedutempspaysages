@@ -148,3 +148,80 @@ document.querySelectorAll('.massif-photo, .renovation-photo, .haie-photo, .entre
     document.body.appendChild(overlay);
   });
 });
+
+// Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Désactiver le bouton et changer le texte
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            
+            // Récupérer les données du formulaire
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Validation côté client
+            if (!data.prenom || !data.nom || !data.email || !data.message) {
+                errorMessage.style.display = 'block';
+                errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Veuillez remplir tous les champs obligatoires.';
+                successMessage.style.display = 'none';
+                resetButton();
+                return;
+            }
+            
+            // Validation email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                errorMessage.style.display = 'block';
+                errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Veuillez saisir une adresse email valide.';
+                successMessage.style.display = 'none';
+                resetButton();
+                return;
+            }
+            
+            // Simulation d'envoi (remplacez par votre logique d'envoi réelle)
+            setTimeout(() => {
+                // Succès simulé
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                
+                // Log des données pour le développement
+                console.log('Données du formulaire:', data);
+                
+                resetButton();
+            }, 2000);
+            
+            function resetButton() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma demande';
+            }
+        });
+        
+        // // Animation au scroll
+        // const observerOptions = {
+        //     threshold: 0.1,
+        //     rootMargin: '0px 0px -50px 0px'
+        // };
+        
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach(entry => {
+        //         if (entry.isIntersecting) {
+        //             entry.target.classList.add('fade-in-up');
+        //         }
+        //     });
+        // }, observerOptions);
+        
+        // document.querySelectorAll('.fade-in-up').forEach(el => {
+        //     observer.observe(el);
+        // });

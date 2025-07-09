@@ -1,0 +1,195 @@
+.footer {
+  background: #233c1e;
+  color: #fff;
+  padding: 40px 0 20px 0;
+
+  // Logo + nom alignés horizontalement
+  .footer-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    padding: 0 24px;
+
+    .footer-logo img {
+      width: 90px;
+      height: auto;
+      display: block;
+    }
+
+    .footer-company-name {
+      font-weight: 700;
+      font-size: 1.7rem;
+      letter-spacing: 0.02em;
+      color: #fff;
+
+      p {
+        margin: 0;
+        font-family: $font2;
+        letter-spacing: 3px;
+        font-weight: 200;
+      }
+    }
+  }
+
+  // Contenu principal en grille 4 colonnes
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    div {
+      h3 {
+        color: #b8e986;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+
+      p, a {
+        color: #d4d4d4;
+      }
+
+      a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover,
+        &:focus {
+          color: #b8e986;
+          text-decoration: underline;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 7px;
+
+          a {
+            color: #d4d4d4;
+          }
+        }
+      }
+    }
+
+    .footer-map iframe {
+      border: 0;
+      border-radius: 8px;
+      width: 100%;
+      height: 120px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.18);
+    }
+  }
+
+  // Mentions légales
+  .footer-legal {
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    padding: 0 24px;
+    text-align: center;
+
+    a {
+      color: #b8e986;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+      transition: text-decoration 0.3s ease;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Réseaux sociaux
+  .footer-social {
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    padding: 0 24px;
+    text-align: center;
+
+    a {
+      color: #b8e986;
+      font-size: 1.6rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+      }
+    }
+  }
+
+  // Copyright
+  .footer-copyright {
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    padding: 0 24px;
+    text-align: center;
+    color: #a6b88c;
+    font-size: 0.95rem;
+  }
+
+  // Créateur du site
+  .site-realise-par {
+    max-width: 1200px;
+    margin: 10px auto 0 auto;
+    padding: 0 24px;
+    text-align: center;
+    color: #a6b88c;
+    font-size: 0.9rem;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    a img {
+      height: 28px;
+      margin-left: 7px;
+      filter: brightness(0) invert(1);
+      vertical-align: middle;
+      transition: filter 0.3s ease;
+
+      &:hover,
+      &:focus {
+        filter: brightness(0.8) invert(0.8);
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: 1000px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .footer-header {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .footer-map iframe {
+      height: 180px;
+    }
+  }
+}

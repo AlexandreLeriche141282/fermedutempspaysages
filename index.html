@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paysagiste à Amiens, Péronne (Somme) – Ferme du Temps Paysages | Création & Entretien de Jardins</title>
-    <link rel="stylesheet" href="./assets/styles/index.css?v=4.1">
+    <link rel="stylesheet" href="./assets/styles/index.css?v=4.2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="icon" type="image/png" href="/Logo-Ferme-Site1.png">
 </head>
@@ -121,7 +121,7 @@
             <li><a href="#renovation" title="Méthodes écologiques"> <i class="fa-brands fa-pagelines"></i> Rénovation/reprise de jardins</a></li>
           </ul>
           <div class="btn-container">
-            <a href="#formulaire-devis" class="btn-devis">Demander un devis</a>
+            <a href="#contact" class="btn-devis">Demander un devis</a>
           </div>
         </div>
         <div class="photo-prestations fade-in-right">
@@ -276,10 +276,181 @@
       </div>
     </div>
   </section>
+
+  <section class="contact-section" id="contact">
+        <div class="container-contact">
+            <div class="contact-header fade-in-up">
+                <h2>Contactez votre paysagiste</h2>
+                <!-- <div class="svg-separator">
+                    <img src="./assets/img/symbole-vert-h2.svg" alt="Séparateur décoratif" />
+                </div> -->
+                <p>Devis gratuit pour vos projets de jardinage à Amiens, Péronne et dans toute la Somme</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info fade-in-up">
+                    <h3>Nos coordonnées</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Belloy-en-Santerre, Somme (80)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>06 12 34 56 78</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@fermedutempspaysages.fr</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Lun-Ven: 8h-18h | Sam: 8h-12h</span>
+                        </div>
+                    </div>
+
+                    <h3>Zone d'intervention</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map"></i>
+                            <span>Somme, Aisne, Oise</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-city"></i>
+                            <span>Amiens, Péronne et alentours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form fade-in-up" id="contactForm">
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i> Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+                    </div>
+                    
+                    <div class="error-message" id="errorMessage">
+                        <i class="fas fa-exclamation-triangle"></i> Une erreur s'est produite. Veuillez réessayer.
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prenom">Prénom <span class="required">*</span></label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom <span class="required">*</span></label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ville">Ville</label>
+                        <input type="text" id="ville" name="ville" placeholder="Amiens, Péronne, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service demandé</label>
+                        <select id="service" name="service">
+                            <option value="">Sélectionnez un service</option>
+                            <option value="creation-massifs">Création de massifs</option>
+                            <option value="taille-haies">Taille de haies / Élagage</option>
+                            <option value="entretien">Entretien de jardins</option>
+                            <option value="renovation">Rénovation/reprise de jardins</option>
+                            <option value="amenagement">Aménagement paysager</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" required placeholder="Décrivez votre projet de jardinage..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer>
+<footer class="footer">
+  <div class="footer-header">
+    <div class="footer-logo">
+      <img src="./assets/img/Logo-Ferme-Site1.webp" alt="Logo Ferme du Temps Paysages">
+    </div>
+    <div class="footer-company-name">
+      <p>Ferme du Temps Paysages</p>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-navigation">
+      <h3>Nos services dans la Somme et alentours</h3>
+      <ul>
+        <li><a href="#massifs">Création de massifs</a></li>
+        <li><a href="#taille-haies">Taille de haies / Élagage</a></li>
+        <li><a href="#entretien">Entretien de jardins</a></li>
+        <li><a href="#renovation">Rénovation de jardins</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-localisation">
+      <h3>Zones d'intervention</h3>
+      <p>
+        Amiens, Péronne, Belloy-en-Santerre, Albert, Roye, Ham, Montdidier, et toute la Somme, ainsi que l'Aisne et l'Oise.
+      </p>
+    </div>
+
+    <div class="footer-address">
+      <h3>Basé à Belloy-en-Santerre</h3>
+      <p>Intervention rapide dans la Somme, l'Aisne et l'Oise</p>
+      <p>Téléphone : <a href="tel:0612345678">06 12 34 56 78</a></p>
+      <p>Email : <a href="mailto:contact@fermedutempspaysages.fr">contact@fermedutempspaysages.fr</a></p>
+    </div>
+
+    <div class="footer-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2536.123456789!2d2.8000000!3d49.9000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e7cbe000000000%3A0x0000000000000000!2sBelloy-en-Santerre!5e0!3m2!1sfr!2sfr!4v1713787811501!5m2!1sfr!2sfr"
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Carte de localisation paysagiste Somme">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="footer-legal">
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+  </div>
+
+  <div class="footer-social">
+    <a href="https://www.facebook.com/profile.php?id=100038810058586" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/agence.pikcel/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
+  <p class="footer-copyright">&copy; 2025 Ferme du Temps Paysages. Tous droits réservés.</p>
+
+  <div class="site-realise-par">
+    <p>Site réalisé par</p>
+    <a href="https://www.pikcel.fr" target="_blank" rel="noopener">
+      <img src="./assets/img/logo-agence-web-lille.svg" alt="logo de l'agence web Pikcel">
+    </a>
+  </div>
 </footer>
+
+
 <button class="cookie-settings" aria-label="Paramètres des cookies">
   <i class="fa-solid fa-gear"></i>
 </button>
