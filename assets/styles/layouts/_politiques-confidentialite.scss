@@ -1,0 +1,67 @@
+// Variables de couleurs (à adapter à ta charte)
+$primary-color: #2c3e50;
+$link-color: #2980b9;
+$background-color: #f9f9f9;
+$text-color: #333;
+$section-bg: #fff;
+$border-color: #ddd;
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  margin: 0;
+  padding: 1rem;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.politique-confidentialite {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: $section-bg;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  h1 {
+    color: $primary-color;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid $primary-color;
+    padding-bottom: 0.5rem;
+  }
+
+  h2 {
+    color: $primary-color;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 0.3rem;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  // Responsive
+  @media (max-width: 480px) {
+    padding: 1rem;
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
