@@ -225,3 +225,17 @@ document.querySelectorAll('.massif-photo, .renovation-photo, .haie-photo, .entre
         // document.querySelectorAll('.fade-in-up').forEach(el => {
         //     observer.observe(el);
         // });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_f7znf8r', 'template_zulnr8d', this)
+        .then(function() {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('contactForm').reset();
+        }, function(error) {
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'block';
+        });
+});
