@@ -873,7 +873,7 @@ nav .navContainer ul li a:hover {
 
 .haie-section {
   background: white;
-  margin-top: 80px;
+  padding-top: 60px;
   position: relative;
 }
 .haie-section:after {
@@ -1586,7 +1586,7 @@ nav .navContainer ul li a:hover {
 
 .credit-section {
   background: white;
-  margin-top: 80px;
+  padding-top: 60px;
   position: relative;
 }
 .credit-section .container-credit {
