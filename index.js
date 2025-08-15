@@ -239,3 +239,51 @@ document.querySelectorAll('.massif-photo, .renovation-photo, .haie-photo, .entre
             document.getElementById('errorMessage').style.display = 'block';
         });
 });
+
+
+// -------------------- Carousel --------------------------------------- //
+const items = document.querySelectorAll('.carousel-item');
+const images = document.querySelector('.carousel-images');
+const modal = document.getElementById('descModal');
+const descText = document.getElementById('descText');
+const closeModal = document.querySelector('.desc-content .close');
+const leftArrow = document.querySelector('.carousel-arrow.left');
+const rightArrow = document.querySelector('.carousel-arrow.right');
+const dotsBox = document.querySelector('.carousel-dots');
+
+let currentIndex = 0;
+
+// Pagination dots
+function updateDots() {
+  dotsBox.innerHTML = '';
+  items.forEach((_, idx) => {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (idx === currentIndex ? ' active' : '');
+    dot.addEventListener('click', () => showSlide(idx));
+    dotsBox.appendChild(dot);
+  });
+}
+
+// Slider logic
+function showSlide(idx) {
+  currentIndex = idx;
+  images.style.transform = `translateX(${-idx * (items[0].offsetWidth + 16)}px)`;
+  updateDots();
+}
+leftArrow.onclick = () => showSlide((currentIndex - 1 + items.length) % items.length);
+rightArrow.onclick = () => showSlide((currentIndex + 1) % items.length);
+
+// Display modal on item click
+items.forEach((item, idx) => {
+  item.addEventListener('click', () => {
+    descText.textContent = item.getAttribute('data-description');
+    modal.style.display = 'block';
+  });
+});
+closeModal.onclick = () => { modal.style.display = 'none'; };
+window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+
+// Setup
+showSlide(0);
+
+
