@@ -1832,6 +1832,7 @@ a:hover, a:focus {
 .carousel .carousel-images {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.6, 0.03, 0.27, 1.02);
+  touch-action: pan-y;
 }
 .carousel .carousel-item {
   min-width: 100%;

@@ -303,30 +303,30 @@ images.addEventListener('transitionend', () => {
   }
 });
 
-// --------------------
-// 👆 SWIPE / DRAG (mobile + souris)
-// --------------------
 let isDown = false;
 let startX = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
 
 images.addEventListener('pointerdown', (e) => {
   isDown = true;
   startX = e.clientX;
+
   images.style.transition = 'none';
+
+  // 🔥 IMPORTANT (fix mobile)
+  images.setPointerCapture(e.pointerId);
 });
 
 images.addEventListener('pointermove', (e) => {
   if (!isDown) return;
 
   const moveX = e.clientX - startX;
-  currentTranslate = -slideWidth * currentIndex + moveX;
 
-  images.style.transform = `translateX(${currentTranslate}px)`;
+  images.style.transform = `translateX(${-slideWidth * currentIndex + moveX}px)`;
 });
 
-images.addEventListener('pointerup', (e) => {
+function endSwipe(e) {
+  if (!isDown) return;
+
   isDown = false;
 
   const movedBy = e.clientX - startX;
@@ -335,39 +335,35 @@ images.addEventListener('pointerup', (e) => {
   if (movedBy > 80) currentIndex--;
 
   setPosition();
-});
+}
 
-images.addEventListener('pointerleave', () => {
-  if (isDown) {
-    isDown = false;
-    setPosition();
-  }
-});
+images.addEventListener('pointerup', endSwipe);
+images.addEventListener('pointercancel', endSwipe);
 
-// --------------------
-// 🔍 ZOOM IMAGE (hover + touch)
-// --------------------
-document.querySelectorAll('.carousel-item img').forEach(img => {
-  img.addEventListener('mouseenter', () => {
-    img.style.transform = 'scale(1.08)';
-    img.style.transition = '0.3s ease';
-  });
+// // --------------------
+// // 🔍 ZOOM IMAGE (hover + touch)
+// // --------------------
+// document.querySelectorAll('.carousel-item img').forEach(img => {
+//   img.addEventListener('mouseenter', () => {
+//     img.style.transform = 'scale(1.08)';
+//     img.style.transition = '0.3s ease';
+//   });
 
-  img.addEventListener('mouseleave', () => {
-    img.style.transform = 'scale(1)';
-  });
+//   img.addEventListener('mouseleave', () => {
+//     img.style.transform = 'scale(1)';
+//   });
 
-  img.addEventListener('touchstart', () => {
-    img.style.transform = 'scale(1.08)';
-  });
+//   img.addEventListener('touchstart', () => {
+//     img.style.transform = 'scale(1.08)';
+//   });
 
-  img.addEventListener('touchend', () => {
-    img.style.transform = 'scale(1)';
-  });
-});
+//   img.addEventListener('touchend', () => {
+//     img.style.transform = 'scale(1)';
+//   });
+// });
 
-// init
-setPosition(false);
+// // init
+// setPosition(false);
 
 // Changement auto de la date (copyright)
 document.getElementById("year").textContent = new Date().getFullYear();
