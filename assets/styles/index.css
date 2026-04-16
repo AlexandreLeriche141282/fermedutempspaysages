@@ -254,6 +254,7 @@ nav .navContainer ul li a:hover {
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   z-index: 0;
 }
 .hero-section img {
@@ -262,6 +263,18 @@ nav .navContainer ul li a:hover {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  animation: zoomAuto 15s infinite ease-in-out;
+}
+@keyframes zoomAuto {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .hero-section .overlay {
   position: absolute;
@@ -323,6 +336,7 @@ nav .navContainer ul li a:hover {
 }
 .hero-section .hero-content p {
   font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 .hero-section .hero-content .cta-buttons {
   display: flex;
@@ -358,6 +372,7 @@ nav .navContainer ul li a:hover {
   }
   .hero-section .hero-content p {
     font-size: 1rem;
+    margin-bottom: 5px;
   }
   .hero-section .hero-content .btn-cta {
     width: 100%;
@@ -374,9 +389,6 @@ nav .navContainer ul li a:hover {
   height: auto;
 }
 
-.contenu-principal {
-  /* Limiter la hauteur de l'image sur desktop */
-}
 .contenu-principal .bloc-texte {
   max-width: 1500px;
   display: flex;
@@ -430,6 +442,9 @@ nav .navContainer ul li a:hover {
   display: block;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
+}
+.contenu-principal {
+  /* Limiter la hauteur de l'image sur desktop */
 }
 @media (min-width: 900px) {
   .contenu-principal .image-section img {
@@ -1224,7 +1239,7 @@ nav .navContainer ul li a:hover {
 
 :root {
   --color4: #2e7d32;
-  --font2: "Georgia", serif;
+  --font2: 'Georgia', serif;
 }
 
 @keyframes fadeInUp {
@@ -1818,41 +1833,23 @@ a:hover, a:focus {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.6, 0.03, 0.27, 1.02);
 }
-.carousel .carousel-images .carousel-item {
-  min-width: 300px;
-  margin: 16px;
+.carousel .carousel-item {
+  min-width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
   cursor: pointer;
   box-shadow: 0 2px 10px #adc2b1;
   border-radius: 10px;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.carousel .carousel-images .carousel-item img {
+.carousel .carousel-item img {
+  width: 100%;
   max-width: 100%;
   border-radius: 10px;
   display: block;
-}
-.carousel .carousel-arrow {
-  position: absolute;
-  top: 48%;
-  background: rgba(36, 97, 68, 0.8392156863);
-  color: #fff;
-  border: none;
-  font-size: 2.4rem;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 2;
-}
-.carousel .carousel-arrow.left {
-  left: 12px;
-}
-.carousel .carousel-arrow.right {
-  right: 12px;
-}
-.carousel .carousel-arrow:hover {
-  background: #49946a;
 }
 .carousel .carousel-dots {
   position: absolute;
@@ -1872,39 +1869,41 @@ a:hover, a:focus {
 .carousel .carousel-dots .dot.active {
   background: #2b6f55;
 }
-
-.desc-modal {
+.carousel .carousel-arrow {
   display: none;
-  position: fixed;
-  z-index: 777;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.47);
 }
-.desc-modal .desc-content {
-  background: #fff;
-  margin: 9% auto;
-  padding: 24px 32px;
-  border-radius: 12px;
-  width: 380px;
-  box-shadow: 0 4px 22px rgba(34, 34, 34, 0.2);
-  position: relative;
-}
-.desc-modal .desc-content .close {
-  position: absolute;
-  top: 13px;
-  right: 17px;
-  font-size: 2rem;
-  color: #246144;
-  cursor: pointer;
-  font-weight: bold;
-}
-.desc-modal .desc-content .close:hover {
-  color: #49946a;
-}
-.desc-modal .desc-content p {
-  font-size: 1.15rem;
-  color: #2b6f55;
+
+/* =========================
+   💻 DESKTOP
+========================= */
+@media (min-width: 900px) {
+  .carousel .carousel-item img {
+    max-width: 60%;
+  }
+  .carousel .carousel-arrow {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(36, 97, 68, 0.8392156863);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+  }
+  .carousel .carousel-arrow:hover {
+    background: #49946a;
+  }
+  .carousel .carousel-arrow.left {
+    left: 12px;
+  }
+  .carousel .carousel-arrow.right {
+    right: 12px;
+  }
 }/*# sourceMappingURL=index.css.map */

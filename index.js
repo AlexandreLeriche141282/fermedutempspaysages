@@ -149,64 +149,53 @@ document.querySelectorAll('.massif-photo, .renovation-photo, .haie-photo, .entre
   });
 });
 
-// Gestion du formulaire de contact
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.querySelector('.submit-btn');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Désactiver le bouton et changer le texte
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-            
-            // Récupérer les données du formulaire
-            const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-            
-            // Validation côté client
-            if (!data.prenom || !data.nom || !data.email || !data.message) {
-                errorMessage.style.display = 'block';
-                errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Veuillez remplir tous les champs obligatoires.';
-                successMessage.style.display = 'none';
-                resetButton();
-                return;
-            }
-            
-            // Validation email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                errorMessage.style.display = 'block';
-                errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Veuillez saisir une adresse email valide.';
-                successMessage.style.display = 'none';
-                resetButton();
-                return;
-            }
-            
-            // Simulation d'envoi (remplacez par votre logique d'envoi réelle)
-            setTimeout(() => {
-                // Succès simulé
-                successMessage.style.display = 'block';
-                errorMessage.style.display = 'none';
-                
-                // Réinitialiser le formulaire
-                this.reset();
-                
-                // Log des données pour le développement
-                console.log('Données du formulaire:', data);
-                
-                resetButton();
-            }, 2000);
-            
-            function resetButton() {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma demande';
-            }
-        });
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const submitBtn = document.querySelector('.submit-btn');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // UI loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+    // Validation simple
+    const prenom = document.getElementById('prenom').value.trim();
+    const nom = document.getElementById('nom').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!prenom || !nom || !email || !message) {
+        errorMessage.style.display = 'block';
+        errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Veuillez remplir tous les champs obligatoires.';
+        successMessage.style.display = 'none';
+        resetButton();
+        return;
+    }
+
+
+    // Envoi EmailJS ---------------------------------------------------------------------------------------------------------
+    emailjs.sendForm("service_ve618if", "template_zulnr8d", this)
+    .then(() => {
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        this.reset();
+        resetButton();
+    })
+    .catch((error) => {
+        console.error(error);
+        errorMessage.style.display = 'block';
+        errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Une erreur s\'est produite. Veuillez réessayer.';
+        successMessage.style.display = 'none';
+        resetButton();
+    });
+
+    function resetButton() {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma demande';
+    }
+});
         
         // // Animation au scroll
         // const observerOptions = {
@@ -226,64 +215,161 @@ document.querySelectorAll('.massif-photo, .renovation-photo, .haie-photo, .entre
         //     observer.observe(el);
         // });
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_f7znf8r', 'template_zulnr8d', this)
-        .then(function() {
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('errorMessage').style.display = 'none';
-            document.getElementById('contactForm').reset();
-        }, function(error) {
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('errorMessage').style.display = 'block';
-        });
-});
 
 
-// -------------------- Carousel --------------------------------------- //
-const items = document.querySelectorAll('.carousel-item');
+const carousel = document.querySelector('.carousel');
 const images = document.querySelector('.carousel-images');
-const modal = document.getElementById('descModal');
-const descText = document.getElementById('descText');
-const closeModal = document.querySelector('.desc-content .close');
+const items = document.querySelectorAll('.carousel-item');
+const dotsBox = document.querySelector('.carousel-dots');
 const leftArrow = document.querySelector('.carousel-arrow.left');
 const rightArrow = document.querySelector('.carousel-arrow.right');
-const dotsBox = document.querySelector('.carousel-dots');
 
-let currentIndex = 0;
+let currentIndex = 1;
+let slideWidth = carousel.offsetWidth;
 
-// Pagination dots
-function updateDots() {
-  dotsBox.innerHTML = '';
-  items.forEach((_, idx) => {
-    const dot = document.createElement('span');
-    dot.className = 'dot' + (idx === currentIndex ? ' active' : '');
-    dot.addEventListener('click', () => showSlide(idx));
-    dotsBox.appendChild(dot);
-  });
-}
+// 🔁 clones (infini)
+const firstClone = items[0].cloneNode(true);
+const lastClone = items[items.length - 1].cloneNode(true);
 
-// Slider logic
-function showSlide(idx) {
-  currentIndex = idx;
-  images.style.transform = `translateX(${-idx * (items[0].offsetWidth + 16)}px)`;
+images.appendChild(firstClone);
+images.insertBefore(lastClone, items[0]);
+
+let slides = document.querySelectorAll('.carousel-item');
+
+// init position
+images.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+
+// resize
+window.addEventListener('resize', () => {
+  slideWidth = carousel.offsetWidth;
+  setPosition(false);
+});
+
+// --------------------
+// 🎯 MOVE SLIDE
+// --------------------
+function setPosition(animate = true) {
+  images.style.transition = animate ? 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+  images.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
   updateDots();
 }
-leftArrow.onclick = () => showSlide((currentIndex - 1 + items.length) % items.length);
-rightArrow.onclick = () => showSlide((currentIndex + 1) % items.length);
 
-// Display modal on item click
-items.forEach((item, idx) => {
-  item.addEventListener('click', () => {
-    descText.textContent = item.getAttribute('data-description');
-    modal.style.display = 'block';
+// --------------------
+// 🔁 DOTS
+// --------------------
+function updateDots() {
+  dotsBox.innerHTML = '';
+
+  for (let i = 1; i < slides.length - 1; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === currentIndex ? ' active' : '');
+
+    dot.onclick = () => {
+      currentIndex = i;
+      setPosition();
+    };
+
+    dotsBox.appendChild(dot);
+  }
+}
+
+// --------------------
+// ➡️ ARROWS
+// --------------------
+rightArrow.onclick = () => {
+  currentIndex++;
+  setPosition();
+};
+
+leftArrow.onclick = () => {
+  currentIndex--;
+  setPosition();
+};
+
+// --------------------
+// 🔁 LOOP FIX
+// --------------------
+images.addEventListener('transitionend', () => {
+  slides = document.querySelectorAll('.carousel-item');
+
+  if (slides[currentIndex] === firstClone) {
+    currentIndex = 1;
+    setPosition(false);
+  }
+
+  if (slides[currentIndex] === lastClone) {
+    currentIndex = slides.length - 2;
+    setPosition(false);
+  }
+});
+
+// --------------------
+// 👆 SWIPE / DRAG (mobile + souris)
+// --------------------
+let isDown = false;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+images.addEventListener('pointerdown', (e) => {
+  isDown = true;
+  startX = e.clientX;
+  images.style.transition = 'none';
+});
+
+images.addEventListener('pointermove', (e) => {
+  if (!isDown) return;
+
+  const moveX = e.clientX - startX;
+  currentTranslate = -slideWidth * currentIndex + moveX;
+
+  images.style.transform = `translateX(${currentTranslate}px)`;
+});
+
+images.addEventListener('pointerup', (e) => {
+  isDown = false;
+
+  const movedBy = e.clientX - startX;
+
+  if (movedBy < -80) currentIndex++;
+  if (movedBy > 80) currentIndex--;
+
+  setPosition();
+});
+
+images.addEventListener('pointerleave', () => {
+  if (isDown) {
+    isDown = false;
+    setPosition();
+  }
+});
+
+// --------------------
+// 🔍 ZOOM IMAGE (hover + touch)
+// --------------------
+document.querySelectorAll('.carousel-item img').forEach(img => {
+  img.addEventListener('mouseenter', () => {
+    img.style.transform = 'scale(1.08)';
+    img.style.transition = '0.3s ease';
+  });
+
+  img.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1)';
+  });
+
+  img.addEventListener('touchstart', () => {
+    img.style.transform = 'scale(1.08)';
+  });
+
+  img.addEventListener('touchend', () => {
+    img.style.transform = 'scale(1)';
   });
 });
-closeModal.onclick = () => { modal.style.display = 'none'; };
-window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
 
-// Setup
-showSlide(0);
+// init
+setPosition(false);
+
+// Changement auto de la date (copyright)
+document.getElementById("year").textContent = new Date().getFullYear();
 
 
