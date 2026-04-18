@@ -217,129 +217,132 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 
 
-const carousel = document.querySelector('.carousel');
-const images = document.querySelector('.carousel-images');
-const items = document.querySelectorAll('.carousel-item');
-const dotsBox = document.querySelector('.carousel-dots');
-const leftArrow = document.querySelector('.carousel-arrow.left');
-const rightArrow = document.querySelector('.carousel-arrow.right');
+document.addEventListener('DOMContentLoaded', () => {
 
-let currentIndex = 1;
-let slideWidth = carousel.offsetWidth;
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(document.querySelectorAll('.carousel-item'));
+  const nextBtn = document.querySelector('.carousel-arrow.right');
+  const prevBtn = document.querySelector('.carousel-arrow.left');
+  const dotsContainer = document.querySelector('.carousel-dots');
 
-// 🔁 clones (infini)
-const firstClone = items[0].cloneNode(true);
-const lastClone = items[items.length - 1].cloneNode(true);
+  let index = 1;
+  let isTransitioning = false;
 
-images.appendChild(firstClone);
-images.insertBefore(lastClone, items[0]);
+  // Clone first & last for infinite effect
+  const firstClone = items[0].cloneNode(true);
+  const lastClone = items[items.length - 1].cloneNode(true);
 
-let slides = document.querySelectorAll('.carousel-item');
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, items[0]);
 
-// init position
-images.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+  const allItems = document.querySelectorAll('.carousel-item');
 
-// resize
-window.addEventListener('resize', () => {
-  slideWidth = carousel.offsetWidth;
-  setPosition(false);
-});
+  // Set initial position
+  track.style.transform = `translateX(-${index * 100}%)`;
 
-// --------------------
-// 🎯 MOVE SLIDE
-// --------------------
-function setPosition(animate = true) {
-  images.style.transition = animate ? 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
-  images.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-  updateDots();
-}
+  // =========================
+  // 🔵 DOTS
+  // =========================
+  const dots = [];
 
-// --------------------
-// 🔁 DOTS
-// --------------------
-function updateDots() {
-  dotsBox.innerHTML = '';
+  items.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
 
-  for (let i = 1; i < slides.length - 1; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'dot' + (i === currentIndex ? ' active' : '');
+    if (i === 0) dot.classList.add('active');
 
-    dot.onclick = () => {
-      currentIndex = i;
-      setPosition();
-    };
+    dot.addEventListener('click', () => {
+      moveToIndex(i + 1);
+    });
 
-    dotsBox.appendChild(dot);
-  }
-}
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+  });
 
-// --------------------
-// ➡️ ARROWS
-// --------------------
-rightArrow.onclick = () => {
-  currentIndex++;
-  setPosition();
-};
+  function updateDots() {
+    dots.forEach(d => d.classList.remove('active'));
 
-leftArrow.onclick = () => {
-  currentIndex--;
-  setPosition();
-};
+    let realIndex = index - 1;
 
-// --------------------
-// 🔁 LOOP FIX
-// --------------------
-images.addEventListener('transitionend', () => {
-  slides = document.querySelectorAll('.carousel-item');
+    if (realIndex < 0) realIndex = dots.length - 1;
+    if (realIndex >= dots.length) realIndex = 0;
 
-  if (slides[currentIndex] === firstClone) {
-    currentIndex = 1;
-    setPosition(false);
+    dots[realIndex].classList.add('active');
   }
 
-  if (slides[currentIndex] === lastClone) {
-    currentIndex = slides.length - 2;
-    setPosition(false);
+  // =========================
+  // MOVE
+  // =========================
+  function moveToIndex(i) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    track.style.transition = 'transform 0.5s ease';
+    track.style.transform = `translateX(-${i * 100}%)`;
+
+    index = i;
+
+    updateDots();
   }
+
+  // Next / Prev
+  nextBtn.addEventListener('click', () => moveToIndex(index + 1));
+  prevBtn.addEventListener('click', () => moveToIndex(index - 1));
+
+  // =========================
+  // INFINITE LOOP RESET
+  // =========================
+  track.addEventListener('transitionend', () => {
+
+    if (allItems[index].isEqualNode(firstClone)) {
+      track.style.transition = 'none';
+      index = 1;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    if (allItems[index].isEqualNode(lastClone)) {
+      track.style.transition = 'none';
+      index = allItems.length - 2;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    updateDots();
+    isTransitioning = false;
+  });
+
+  // =========================
+  // SWIPE MOBILE
+  // =========================
+  let startX = 0;
+  let isDragging = false;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  track.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+
+    const moveX = e.touches[0].clientX;
+    const diff = startX - moveX;
+
+    if (diff > 50) {
+      moveToIndex(index + 1);
+      isDragging = false;
+    }
+
+    if (diff < -50) {
+      moveToIndex(index - 1);
+      isDragging = false;
+    }
+  });
+
+  track.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
 });
-
-let isDown = false;
-let startX = 0;
-
-images.addEventListener('pointerdown', (e) => {
-  isDown = true;
-  startX = e.clientX;
-
-  images.style.transition = 'none';
-
-  // 🔥 IMPORTANT (fix mobile)
-  images.setPointerCapture(e.pointerId);
-});
-
-images.addEventListener('pointermove', (e) => {
-  if (!isDown) return;
-
-  const moveX = e.clientX - startX;
-
-  images.style.transform = `translateX(${-slideWidth * currentIndex + moveX}px)`;
-});
-
-function endSwipe(e) {
-  if (!isDown) return;
-
-  isDown = false;
-
-  const movedBy = e.clientX - startX;
-
-  if (movedBy < -80) currentIndex++;
-  if (movedBy > 80) currentIndex--;
-
-  setPosition();
-}
-
-images.addEventListener('pointerup', endSwipe);
-images.addEventListener('pointercancel', endSwipe);
-
 // // --------------------
 // // 🔍 ZOOM IMAGE (hover + touch)
 // // --------------------
