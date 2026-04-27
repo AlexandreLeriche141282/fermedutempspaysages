@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://serrurier-valenciennes-depannage.fr/sitemap.xml

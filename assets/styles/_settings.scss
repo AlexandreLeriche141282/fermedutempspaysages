@@ -6,9 +6,14 @@
     font-family: "Rochester";
     src: url(../fonts//Rochester-Regular.ttf);
   }
+@font-face {
+    font-family: "PlayfairDisplay";
+    src: url(../fonts//PlayfairDisplay-Regular.ttf);
+  }
 
 $font1:Roboto, serif;
 $font2:Rochester, serif;
+$font3:PlayfairDisplay, serif;
 $Color1:rgb(255, 198, 50);
 $Color2:rgb(56, 45, 94);
 $Color3:#FD8000;
